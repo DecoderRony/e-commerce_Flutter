@@ -8,7 +8,7 @@ import './productCard.dart';
 class Land extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var product = Provider.of<ProductProvider>(context).products;
+    final product = Provider.of<ProductProvider>(context).productData;
     return ClipRRect(
       borderRadius: BorderRadius.only(
           topLeft: Radius.circular(15), topRight: Radius.circular(15)),
@@ -45,9 +45,12 @@ class Land extends StatelessWidget {
               Container(
                 height: MediaQuery.of(context).size.height * 0.83,
                 child: ListView.builder(
-                  itemBuilder: (context, produtcIndex) {
-                    return ProductCard(produtcIndex);
-                  },
+                  itemBuilder: (context, produtcIndex) => MultiProvider(
+                    providers: [
+                      ChangeNotifierProvider.value(value: product[produtcIndex])
+                    ],
+                    child: ProductCard(),
+                  ),
                   itemCount: product.length,
                 ),
               )

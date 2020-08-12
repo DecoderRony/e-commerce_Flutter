@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import './productObject.dart';
 
 class ProductProvider with ChangeNotifier {
-  List<ProductData> _products = [
+  List<ProductData> products = [
     ProductData(
+      id: '273Bd',
       name: 'Makaut Organizer',
       description:
           'Makaut organizer for AEIE 2nd year students in very good condition',
@@ -16,6 +17,7 @@ class ProductProvider with ChangeNotifier {
           'https://www.bookkar.co.in/wp-content/uploads/2017/09/Civil-5th-Sem.jpeg',
     ),
     ProductData(
+      id: '354Ac',
       name: 'T-Scale',
       description:
           'T-Scale for graphics engineering drawing in very good condition',
@@ -25,6 +27,7 @@ class ProductProvider with ChangeNotifier {
           'https://img.favpng.com/17/11/21/scale-ruler-architecture-t-square-png-favpng-wHD5zVd8kmikhB6SdRmHmaD5d.jpg',
     ),
     ProductData(
+      id: '198Ab',
       name: 'Graphics Engineering Set',
       description:
           'Complete set of all required instruments for graphics drawing',
@@ -35,7 +38,11 @@ class ProductProvider with ChangeNotifier {
     ),
   ];
 
-  List<ProductData> get products {
-    return [..._products];
+  List<ProductData> get productData {
+    return [...products];
+  }
+
+  ProductData product(String id) {
+    return products.firstWhere((element) => element.id == id);
   }
 }

@@ -1,7 +1,7 @@
 //import 'package:cheapkart/screens/ladingScreen.dart';
 import 'package:cheapkart/providers/productProvider.dart';
 import 'package:cheapkart/screens/ladingScreen.dart';
-import 'package:cheapkart/screens/loginPage.dart';
+import 'package:cheapkart/screens/productDescription.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +25,9 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.teal,
         ),
         home: LandingScreen(),
+        routes: {
+          '/productDescription': (context) => ProductDescription(),
+        },
       ),
     );
   }
