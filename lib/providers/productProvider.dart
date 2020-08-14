@@ -36,6 +36,16 @@ class ProductProvider with ChangeNotifier {
       imageUrl:
           'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
     ),
+    ProductData(
+      id: '198Ab',
+      name: 'Graphics Engineering Set',
+      description:
+          'Complete set of all required instruments for graphics drawing',
+      price: 900,
+      quality: 'Well-maintained',
+      imageUrl:
+          'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
+    ),
   ];
 
   List<ProductData> get productData {
