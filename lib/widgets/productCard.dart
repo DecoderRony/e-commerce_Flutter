@@ -22,9 +22,12 @@ class ProductCard extends StatelessWidget {
                 Container(
                   height: 100,
                   width: 100,
-                  child: Image.network(
-                    product.imageUrl,
-                    fit: BoxFit.contain,
+                  child: Hero(
+                    tag: product.id,
+                    child: Image.network(
+                      product.imageUrl,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 Expanded(

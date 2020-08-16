@@ -29,9 +29,12 @@ class ProductDescription extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 7),
                   child: Center(
-                    child: Image.network(
-                      data.imageUrl,
-                      fit: BoxFit.contain,
+                    child: Hero(
+                      tag: data.id,
+                      child: Image.network(
+                        data.imageUrl,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),

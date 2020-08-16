@@ -37,7 +37,7 @@ class ProductProvider with ChangeNotifier {
           'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
     ),
     ProductData(
-      id: '198Ab',
+      id: '198Ag',
       name: 'Graphics Engineering Set',
       description:
           'Complete set of all required instruments for graphics drawing',
