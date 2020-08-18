@@ -4,7 +4,7 @@ class ProductData with ChangeNotifier {
   String id;
   String name;
   String description;
-  double price;
+  int price;
   String quality;
   String imageUrl;
   DateTime date;

@@ -43,19 +43,38 @@ class Land extends StatelessWidget {
                     ),
                   ],
                 ),
+                // Container(
+                //   height: MediaQuery.of(context).size.height * 0.83,
+                //   child: ListView.builder(
+                //     itemBuilder: (context, produtcIndex) => MultiProvider(
+                //       providers: [
+                //         ChangeNotifierProvider.value(
+                //             value: product[produtcIndex])
+                //       ],
+                //       child: ProductCard(),
+                //     ),
+                //     itemCount: product.length,
+                //   ),
+
+                // )
+
                 Container(
                   height: MediaQuery.of(context).size.height * 0.83,
-                  child: ListView.builder(
-                    itemBuilder: (context, produtcIndex) => MultiProvider(
-                      providers: [
-                        ChangeNotifierProvider.value(
-                            value: product[produtcIndex])
-                      ],
-                      child: ProductCard(),
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    children: List.generate(
+                      product.length,
+                      (index) {
+                        return MultiProvider(
+                          providers: [
+                            ChangeNotifierProvider.value(value: product[index])
+                          ],
+                          child: ProductCard(),
+                        );
+                      },
                     ),
-                    itemCount: product.length,
                   ),
-                )
+                ),
               ],
             ),
           ),

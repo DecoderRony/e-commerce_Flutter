@@ -10,43 +10,46 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context)
           .pushNamed('/productDescription', arguments: product.id),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Card(
-          color: Color.fromRGBO(247, 247, 247, 1.0),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  child: Hero(
-                    tag: product.id,
-                    child: Image.network(
-                      product.imageUrl,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                child: Hero(
+                    tag: product.id, child: Image.network(product.imageUrl)),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  '${product.name}',
+                  textAlign: TextAlign.center,
                 ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(product.name),
-                      SizedBox(height: 10),
-                      Text(
-                        product.price.toString(),
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Rs.${product.price.toString()}',
+                    style: TextStyle(fontSize: 18),
                   ),
-                )
-              ],
-            ),
+                  Icon(Icons.favorite_border)
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              )
+            ],
           ),
         ),
       ),
