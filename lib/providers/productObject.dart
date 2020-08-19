@@ -8,6 +8,7 @@ class ProductData with ChangeNotifier {
   String quality;
   String imageUrl;
   DateTime date;
+  bool isFav;
 
   ProductData({
     this.id,
@@ -17,5 +18,15 @@ class ProductData with ChangeNotifier {
     @required this.quality,
     @required this.imageUrl,
     this.date,
+    this.isFav = false,
   });
+
+  void toggleFav() {
+    if (isFav)
+      isFav = false;
+    else
+      isFav = true;
+
+    notifyListeners();
+  }
 }

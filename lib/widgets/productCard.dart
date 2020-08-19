@@ -10,47 +10,67 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context)
           .pushNamed('/productDescription', arguments: product.id),
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                child: Hero(
-                    tag: product.id, child: Image.network(product.imageUrl)),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                blurRadius: 5,
+                offset: Offset(1, 5),
+                spreadRadius: 3,
               ),
-              SizedBox(
-                height: 5,
+            ],
+            color: Colors.white),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                product.isFav
+                    ? IconButton(
+                        icon: Icon(Icons.favorite),
+                        onPressed: product.toggleFav)
+                    : IconButton(
+                        icon: Icon(Icons.favorite_border),
+                        onPressed: product.toggleFav)
+              ],
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              child: Hero(
+                tag: product.id,
+                child: Image.network(product.imageUrl),
               ),
-              FittedBox(
-                fit: BoxFit.contain,
-                child: Text(
-                  '${product.name}',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Rs.${product.price.toString()}',
-                    style: TextStyle(fontSize: 18),
+                    product.price.toString(),
+                    style: TextStyle(color: Theme.of(context).primaryColor),
                   ),
-                  Icon(Icons.favorite_border)
+                  // Text(
+                  //   '${product.name}',
+                  //   textAlign: TextAlign.center,
+                  // ),
+                  product.name.length <= 17
+                      ? Text(
+                          '${product.name}',
+                          textAlign: TextAlign.center,
+                        )
+                      : Text('${product.name.substring(0, 17)}...'),
+                  Divider(),
+                  Text("Add to kart"),
                 ],
               ),
-              SizedBox(
-                height: 5,
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

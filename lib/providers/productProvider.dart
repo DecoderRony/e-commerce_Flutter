@@ -15,6 +15,7 @@ class ProductProvider with ChangeNotifier {
       quality: 'Well-maintained',
       imageUrl:
           'https://www.bookkar.co.in/wp-content/uploads/2017/09/Civil-5th-Sem.jpeg',
+      date: DateTime.now(),
     ),
     ProductData(
       id: '354Ac',
@@ -25,6 +26,7 @@ class ProductProvider with ChangeNotifier {
       quality: 'Fair condition',
       imageUrl:
           'https://img.favpng.com/17/11/21/scale-ruler-architecture-t-square-png-favpng-wHD5zVd8kmikhB6SdRmHmaD5d.jpg',
+      date: DateTime.now(),
     ),
     ProductData(
       id: '198Ab',
@@ -35,6 +37,7 @@ class ProductProvider with ChangeNotifier {
       quality: 'Well-maintained',
       imageUrl:
           'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
+      date: DateTime.now(),
     ),
     ProductData(
       id: '198Ag',
@@ -45,6 +48,18 @@ class ProductProvider with ChangeNotifier {
       quality: 'Well-maintained',
       imageUrl:
           'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
+      date: DateTime.now(),
+    ),
+    ProductData(
+      id: '198cg',
+      name: 'Graphics Engineering Set',
+      description:
+          'Complete set of all required instruments for graphics drawing',
+      price: 900,
+      quality: 'Well-maintained',
+      imageUrl:
+          'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
+      date: DateTime.now(),
     ),
   ];
 

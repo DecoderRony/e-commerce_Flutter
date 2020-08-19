@@ -57,11 +57,14 @@ class Land extends StatelessWidget {
                 //   ),
 
                 // )
-
+                SizedBox(height: 10),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.83,
                   child: GridView.count(
                     crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 0.65,
+                    mainAxisSpacing: 15,
                     children: List.generate(
                       product.length,
                       (index) {
@@ -75,6 +78,9 @@ class Land extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                )
               ],
             ),
           ),
