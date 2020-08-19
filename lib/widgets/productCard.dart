@@ -66,7 +66,19 @@ class ProductCard extends StatelessWidget {
                         )
                       : Text('${product.name.substring(0, 17)}...'),
                   Divider(),
-                  Text("Add to kart"),
+                  GestureDetector(
+                      child: Row(
+                    children: [
+                      Icon(
+                        Icons.add_shopping_cart,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      Text(
+                        "Add to kart",
+                        style: TextStyle(color: Theme.of(context).primaryColor),
+                      ),
+                    ],
+                  )),
                 ],
               ),
             )
