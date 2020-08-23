@@ -1,5 +1,6 @@
 //import 'package:cheapkart/screens/ladingScreen.dart';
 import 'package:cheapkart/providers/productProvider.dart';
+import 'package:cheapkart/screens/favourites.dart';
 import 'package:cheapkart/screens/ladingScreen.dart';
 import 'package:cheapkart/screens/productDescription.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         home: LandingScreen(),
         routes: {
           '/productDescription': (context) => ProductDescription(),
+          '/favourites': (context) => Favourites(),
         },
       ),
     );

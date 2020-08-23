@@ -1,7 +1,6 @@
 //import 'package:cheapkart/providers/productObject.dart';
 import 'package:cheapkart/providers/productProvider.dart';
 import 'package:cheapkart/widgets/appBarDefault.dart';
-import 'package:cheapkart/widgets/appDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +14,6 @@ class ProductDescription extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: appBarWidget(),
-      drawer: appDrawer(),
       body: ClipRRect(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),

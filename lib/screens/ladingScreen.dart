@@ -10,7 +10,7 @@ class LandingScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: appBarWidget(),
       body: Land(),
-      drawer: appDrawer(),
+      drawer: appDrawer(context),
     );
   }
 }

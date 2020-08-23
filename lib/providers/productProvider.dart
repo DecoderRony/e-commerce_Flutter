@@ -70,4 +70,8 @@ class ProductProvider with ChangeNotifier {
   ProductData product(String id) {
     return products.firstWhere((element) => element.id == id);
   }
+
+  List<ProductData> get favList {
+    return products.where((element) => element.isFav == true).toList();
+  }
 }
