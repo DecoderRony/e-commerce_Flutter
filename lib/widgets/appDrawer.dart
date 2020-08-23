@@ -17,6 +17,7 @@ Widget appDrawer(context) {
             size: 40,
           ),
           title: const Text('Profile'),
+          onTap: () => Navigator.popAndPushNamed(context, '/profile'),
         ),
         ListTile(
           leading: const Icon(

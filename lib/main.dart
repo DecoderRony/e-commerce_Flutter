@@ -3,6 +3,8 @@ import 'package:cheapkart/providers/productProvider.dart';
 import 'package:cheapkart/screens/favourites.dart';
 import 'package:cheapkart/screens/ladingScreen.dart';
 import 'package:cheapkart/screens/productDescription.dart';
+import 'package:cheapkart/screens/profile.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/productDescription': (context) => ProductDescription(),
           '/favourites': (context) => Favourites(),
+          '/profile': (context) => ProfileSection(),
         },
       ),
     );
