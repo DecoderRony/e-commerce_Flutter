@@ -1,5 +1,6 @@
 //import 'package:cheapkart/screens/ladingScreen.dart';
 import 'package:cheapkart/providers/productProvider.dart';
+import 'package:cheapkart/screens/addProductPage.dart';
 import 'package:cheapkart/screens/favourites.dart';
 import 'package:cheapkart/screens/ladingScreen.dart';
 import 'package:cheapkart/screens/productDescription.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           '/productDescription': (context) => ProductDescription(),
           '/favourites': (context) => Favourites(),
           '/profile': (context) => ProfileSection(),
+          '/addProductPage': (context) => AddProduct(),
         },
       ),
     );
