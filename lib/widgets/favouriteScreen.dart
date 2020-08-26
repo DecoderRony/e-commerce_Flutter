@@ -11,32 +11,31 @@ class FavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<ProductData> favProduct =
         Provider.of<ProductProvider>(context).favList;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        childAspectRatio: 0.65,
-        mainAxisSpacing: 15,
-        children: favProduct != null
-            ? List.generate(
-                favProduct.length,
-                (index) {
-                  return MultiProvider(
-                    providers: [
-                      ChangeNotifierProvider.value(value: favProduct[index])
-                    ],
-                    child: ProductCard(),
-                  );
-                },
-              )
-            : Center(
-                child: Text(
-                  'No favourite products found',
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-              ),
-      ),
-    );
+    return favProduct.isEmpty
+        ? Center(
+            child: Text(
+              'No favourite products found',
+              style: GoogleFonts.openSans(fontSize: 16, color: Colors.grey),
+            ),
+          )
+        : Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                childAspectRatio: 0.65,
+                mainAxisSpacing: 15,
+                children: List.generate(
+                  favProduct.length,
+                  (index) {
+                    return MultiProvider(
+                      providers: [
+                        ChangeNotifierProvider.value(value: favProduct[index])
+                      ],
+                      child: ProductCard(),
+                    );
+                  },
+                )),
+          );
   }
 }

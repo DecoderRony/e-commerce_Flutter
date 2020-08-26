@@ -15,7 +15,12 @@ class ProfileSection extends StatelessWidget {
         title: const Text('Profile'),
         centerTitle: true,
         elevation: 0,
-        actions: [IconButton(icon: Icon(Icons.add), onPressed: () {})],
+        actions: [
+          IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () => Navigator.pushNamed(context, '/addProductPage',
+                  arguments: 'Add Product'))
+        ],
       ),
       body: product == null
           ? Center(
