@@ -74,4 +74,18 @@ class ProductProvider with ChangeNotifier {
   List<ProductData> get favList {
     return products.where((element) => element.isFav == true).toList();
   }
+
+  void addProduct(ProductData product) {
+    final newProduct = ProductData(
+      id: DateTime.now().toString(),
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      quality: product.quality,
+    );
+
+    products.insert(0, newProduct);
+
+    notifyListeners();
+  }
 }

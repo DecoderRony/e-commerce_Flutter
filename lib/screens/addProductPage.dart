@@ -1,4 +1,8 @@
+import 'package:cheapkart/providers/productObject.dart';
+import 'package:cheapkart/providers/productProvider.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddProduct extends StatefulWidget {
   @override
@@ -10,10 +14,14 @@ class _AddProductState extends State<AddProduct> {
   FocusNode _price;
   List type = ['Poor', 'Fair', 'Well-Maintained'];
   int _selectedIndex = 0;
+  var _newProduct =
+      ProductData(id: null, name: '', description: '', price: 0, quality: '');
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     _node = FocusNode();
+    _price = FocusNode();
     super.initState();
   }
 
@@ -40,7 +48,6 @@ class _AddProductState extends State<AddProduct> {
           setState(() {
             _selectedIndex = i;
           });
-          print(type[i]);
         },
       );
 
@@ -53,10 +60,18 @@ class _AddProductState extends State<AddProduct> {
     return chips;
   }
 
+  void _submit() {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      print(_newProduct.name);
+      Provider.of<ProductProvider>(context).addProduct(_newProduct);
+      Navigator.pop(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final drawerName = ModalRoute.of(context).settings.arguments;
-    final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -103,6 +118,11 @@ class _AddProductState extends State<AddProduct> {
                               else
                                 return null;
                             },
+                            onSaved: (value) => _newProduct = ProductData(
+                                name: value,
+                                description: _newProduct.description,
+                                price: _newProduct.price,
+                                quality: _newProduct.quality),
                             onFieldSubmitted: (_) {
                               FocusScope.of(context).requestFocus(_node);
                             },
@@ -124,6 +144,11 @@ class _AddProductState extends State<AddProduct> {
                               else
                                 return null;
                             },
+                            onSaved: (value) => _newProduct = ProductData(
+                                name: _newProduct.name,
+                                description: value,
+                                price: _newProduct.price,
+                                quality: _newProduct.quality),
                             textInputAction: TextInputAction.newline,
                           ),
                           SizedBox(
@@ -143,6 +168,11 @@ class _AddProductState extends State<AddProduct> {
                               else
                                 return null;
                             },
+                            onSaved: (value) => _newProduct = ProductData(
+                                name: _newProduct.name,
+                                description: _newProduct.description,
+                                price: int.parse(value),
+                                quality: _newProduct.quality),
                           ),
                           SizedBox(
                             height: 10,
@@ -158,7 +188,15 @@ class _AddProductState extends State<AddProduct> {
                             children: [
                               RaisedButton(
                                 color: Theme.of(context).primaryColor,
-                                onPressed: () {},
+                                onPressed: () {
+                                  _newProduct = ProductData(
+                                    name: _newProduct.name,
+                                    description: _newProduct.description,
+                                    price: _newProduct.price,
+                                    quality: type[_selectedIndex],
+                                  );
+                                  _submit();
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 20),

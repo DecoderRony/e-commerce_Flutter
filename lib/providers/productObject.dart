@@ -7,7 +7,7 @@ class ProductData with ChangeNotifier {
   int price;
   String quality;
   String imageUrl;
-  DateTime date;
+  DateTime date = DateTime.now();
   bool isFav;
 
   ProductData({
@@ -16,7 +16,8 @@ class ProductData with ChangeNotifier {
     @required this.description,
     @required this.price,
     @required this.quality,
-    @required this.imageUrl,
+    this.imageUrl =
+        'http://theconstructor.org/wp-content/uploads/2017/12/instruments-used-in-engineering-drawings.jpg',
     this.date,
     this.isFav = false,
   });
