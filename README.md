@@ -1,6 +1,6 @@
-# cheapkart
+# Cheapkart
 
-A second hand engineering equipments buying platform.
+A second hand engineering equipments buying platform for all your needs.
 
 ## Getting Started
 
